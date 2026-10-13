@@ -1,0 +1,24 @@
+const int dry = 446; // Sensor is fully dry
+const int wet = 197; // Sensor is fully submerged in water
+// The value range from dry to wet is 446-197
+void setup(){
+  pinMode(10, OUTPUT);
+  Serial.begin(9600);
+}
+
+void loop(){
+  int sensorVal = analogRead(A0);
+  int percentHum = map(sensorVal, wet, dry, 100, 0);
+   
+   if(percentHum < 50){ // If soil has under 50% humidity, it will pump water
+     digitalWrite(10, HIGH);
+     delay(3000); // Pours water for 3 seconds
+     digitalWrite(10, LOW); // Turns pump back off
+     Serial.println("dry"); // For testing sensor, and to see if soil is dry or not without needing to connect motor
+   }
+   else{
+     digitalWrite(10, LOW);
+     Serial.println("wet"); // For testing sensor, and to see if soil is dry or not without needing to connect motor
+   }
+  delay(30000); // Waits 30 seconds before checking moisture
+}

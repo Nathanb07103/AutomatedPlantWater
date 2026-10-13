@@ -16,22 +16,26 @@ Hardware Used
 
 Skills Demonstrated
 * Embedded C++ 
-* Reading anolog inputs
+* Reading analog inputs
 * Writing digital outputs
 * Circuit design
 * Troubleshooting and debugging
 
-Results 
+How it works
 
-When the moisture levels in the soil drop below 50%, water is dispensed into the soil.
+The Arduino continuously reads the soil moisture sensor's analog output. When moisture levels drop below 50%, the relay is activated, powering the submersible pump and watering the plant. Once the desired moisture level is reached, the pump is turned off automatically.
+
+Results
+
+Successfully automated plant watering based on soil moisture measurements, reducing the need for manual watering and demonstrating closed-loop control using sensor feedback.
 
 Images
 
 ![alt text](PlantWater.jpg)
 ![alt text](IMG_4618-ezgif.com-resize.gif)
 
-Future Improvments
+Future Improvements
 
-* Dedicated harness for external power supply
-* Purpose built tube for pump
-* External power supply for Arduino
+* Dedicated harness for external power
+* Purpose built water delivering tube
+* Independent power supply for Arduino
